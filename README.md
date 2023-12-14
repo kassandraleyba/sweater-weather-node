@@ -57,18 +57,6 @@ _Follow the steps below to install and set up this app._
 
 <br />
 
-
-## Schema
-
-<br />
-
-<div align="center">
-
-  ![schema](schema)
-</div>
-
-<br />
-
 ### Testing
 
 * This project utilizes mocha and chai testing
