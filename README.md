@@ -74,4 +74,4 @@ _Follow the steps below to install and set up this app._
 ## Endpoints
 
 ### Retrieve weather for a city
-#### GET /api/v0/forecast?location=cincinatti,oh
+#### GET /api/v0/forecast?location=denver,co
