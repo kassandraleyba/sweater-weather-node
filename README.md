@@ -1,4 +1,4 @@
-# Sweater Weather
+# Sweater Weather -
 
 ## About The Project
 
