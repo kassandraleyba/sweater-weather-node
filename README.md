@@ -70,8 +70,3 @@ _Follow the steps below to install and set up this app._
   * Run the entire test suite using the command `npx mocha test`
 
 <br />
-
-## Endpoints
-
-### Retrieve weather for a city
-#### GET /api/v0/forecast?location=denver,co
