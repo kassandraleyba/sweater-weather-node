@@ -65,7 +65,7 @@ _Follow the steps below to install and set up this app._
     ```sh
     npm install
     ```
-5. Add your Mapquest and Weather Api key to the `.env` file
+5. Add your Mapquest and Weather API key to the `.env` file
    ```.env
    MAPQUEST_API_KEY=enter_your_key
    WEATHER_API_KEY=enter_your_key
@@ -81,3 +81,25 @@ _Follow the steps below to install and set up this app._
   * Run the entire test suite using the command `npx mocha test`
 
 <br />
+
+## Contributors:
+
+<table>
+  <tr>
+    <td><img src="https://avatars.githubusercontent.com/kassandraleyba" width="150" height="150"></td>
+  </tr>
+  <tr>
+    <td>Kassandra Leyba</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/kassandraleyba">GitHub</a> 
+      <a href="https://www.linkedin.com/in/kassandra-leyba/">LinkedIn</a>
+    </td>
+  </tr>
+</table>
+
+<br />
+
+## Acknowledgements
+* ["The Best README Template" by Github User othneil](https://github.com/othneildrew/Best-README-Template)
