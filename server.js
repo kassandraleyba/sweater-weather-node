@@ -3,6 +3,8 @@ const axios = require('axios');
 const app = express();
 const port = process.env.PORT || 3000;
 
+module.exports = app;
+
 require('dotenv').config();
 
 app.set('view engine', 'ejs');
