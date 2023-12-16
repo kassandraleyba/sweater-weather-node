@@ -5,7 +5,7 @@
 
 ## About The Project
 
-Sweater Weather in NodeJS is a weather API application following requirements [here](https://backend.turing.edu/module3/projects/sweater_weather/requirements).
+Sweater Weather in Node.js is a weather API application following requirements [here](https://backend.turing.edu/module3/projects/sweater_weather/requirements).
 
 The learning goals for this project are:
 
@@ -38,13 +38,24 @@ The learning goals for this project are:
   Npm 9.6.4
   ```
 
+ > **Note:**
+ > - If you do not have node and npm installed, [here](https://mod0.turing.edu/computer-setup#install-node) is one resource you can use to get started.
+
 <br />
 
 _Follow the steps below to install and set up this app._
 
-1. THIS REPO NEEDS A MAPQUEST API KEY AND A WEATHER API KEY. Get free API Keys at:
-   - [https://developer.mapquest.com/documentation/geocoding-api/](https://developer.mapquest.com/documentation/geocoding-api/)
-   - [https://www.weatherapi.com/](https://www.weatherapi.com/)
+1. THIS REPO NEEDS A MAPQUEST API KEY AND A WEATHER API KEY. Get API Keys at:
+   - [https://developer.mapquest.com/user/login/sign-up](https://developer.mapquest.com/user/login/sign-up)
+   - [https://www.weatherapi.com/signup.aspx](https://www.weatherapi.com/signup.aspx)
+
+  > **Note:**
+  > - You will need to make an account and login before given an API key 
+  > - Mapquest API recently changed to $0.000045 per call 
+  > - Weather API is free
+  > - BOTH are required to run the application successfully
+
+  <br />
 
 3. Clone this Repository
    ```sh
@@ -66,7 +77,7 @@ _Follow the steps below to install and set up this app._
 ### Testing
 
 * This project utilizes mocha and chai testing
-* After cloning this repo and following the steps above to install all necessary gems and API keys:
+* After cloning this repo and following the steps above to install packages and API keys:
   * Run the entire test suite using the command `npx mocha test`
 
 <br />
