@@ -21,6 +21,7 @@ The learning goals for this project are:
 ![EJS](https://img.shields.io/badge/EJS-%23E74C3C.svg?style=for-the-badge&logo=ejs&logoColor=white)
 ![Mocha](https://img.shields.io/badge/Mocha-%238D6748.svg?style=for-the-badge&logo=mocha&logoColor=white)
 ![Chai](https://img.shields.io/badge/Chai-%23A30701.svg?style=for-the-badge&logo=chai&logoColor=white)
+![Heroku](https://img.shields.io/badge/Heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
 
 <br />
 
