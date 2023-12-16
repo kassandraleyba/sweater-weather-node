@@ -73,7 +73,6 @@ _Follow the steps below to install and set up this app._
    ```
 6. Run `node server.js` in your terminal and visit [http://localhost:3000/](http://localhost:3000/) to explore the end points for yourself!
 
-<br />
 
 ### Testing
 
@@ -83,7 +82,7 @@ _Follow the steps below to install and set up this app._
 
 <br />
 
-## Contributors:
+## Contributors
 
 <table>
   <tr>
