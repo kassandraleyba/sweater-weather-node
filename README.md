@@ -38,8 +38,8 @@ The learning goals for this project are:
   Npm 9.6.4
   ```
 
- > **Note:**
- > - If you do not have node and npm installed, [here](https://mod0.turing.edu/computer-setup#install-node) is one resource you can use to get started.
+ > > **Note:**
+ > > - If you do not have node and npm installed, [here](https://mod0.turing.edu/computer-setup#install-node) is one resource you can use to get started.
 
 <br />
 
@@ -49,11 +49,11 @@ _Follow the steps below to install and set up this app._
    - [https://developer.mapquest.com/user/login/sign-up](https://developer.mapquest.com/user/login/sign-up)
    - [https://www.weatherapi.com/signup.aspx](https://www.weatherapi.com/signup.aspx)
 
-  > **Note:**
-  > - You will need to make an account and login before given an API key 
-  > - Mapquest API recently changed to $0.000045 per call 
-  > - Weather API is free
-  > - BOTH are required to run the application successfully
+  > > **Note:**
+  > > - You will need to make an account and login before given an API key 
+  > > - Mapquest API recently changed to $0.000045 per call 
+  > > - Weather API is free
+  > > - BOTH are required to run the application successfully
 
   <br />
 
