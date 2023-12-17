@@ -15,8 +15,8 @@
     <p>Temperature: <%= jsonData.data.attributes.current_weather.temperature %>°F</p> 
     <p>Feels Like: <%= jsonData.data.attributes.current_weather.feels_like %>°F</p>
     <p>Humidity: <%= jsonData.data.attributes.current_weather.humidity %>%</p>
-    <p>UV Index: <%= jsonData.data.attributes.current_weather.uvi %></p>
-    <p>Visibility: <%= jsonData.data.attributes.current_weather.visibility %> km</p>
+    <p>UV Index: <%= jsonData.data.attributes.current_weather.uv %></p>
+    <p>Visibility: <%= jsonData.data.attributes.current_weather.visibility %> mi</p>
     <p>Condition: <%= jsonData.data.attributes.current_weather.condition %></p>
     <p><img src="<%= jsonData.data.attributes.current_weather.icon %>" alt="Current Weather Icon"></p>
   </ul>

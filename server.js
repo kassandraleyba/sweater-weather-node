@@ -54,7 +54,7 @@ app.get('/', async (req, res) => {
             feels_like: weatherResponse.data.current.feelslike_f, 
             humidity: weatherResponse.data.current.humidity,
             uv: weatherResponse.data.current.uv,
-            visibility: weatherResponse.data.current.vis_mi,
+            visibility: weatherResponse.data.current.vis_miles,
             condition: weatherResponse.data.current.condition.text,
             icon: weatherResponse.data.current.condition.icon,
           },
