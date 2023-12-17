@@ -16,8 +16,6 @@ app.get('/', async (req, res) => {
   const location = 'Denver, CO';
   // const location = 'Austin, TX';
 
- 
-
   try {
     const mapquestApiKey = process.env.MAPQUEST_API_KEY;
     const weatherApiKey = process.env.WEATHER_API_KEY;
@@ -29,13 +27,13 @@ app.get('/', async (req, res) => {
     const lat = mapquestResponse.data.results[0].locations[0].latLng.lat;
     const lng = mapquestResponse.data.results[0].locations[0].latLng.lng;
 
-    console.log('Latitude:', lat);
-    console.log('Longitude:', lng);
+    // console.log('Latitude:', lat);
+    // console.log('Longitude:', lng);
 
     // const jsonData = { latitude: lat, longitude: lng };
     // res.render('index', { jsonData });
 
-    console.log('weather API Key:', weatherApiKey);
+    // console.log('weather API Key:', weatherApiKey);
 
     const weatherApiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${weatherApiKey}&q=${lat},${lng}`;
     const weatherResponse = await axios.get(weatherApiUrl);
@@ -53,14 +51,16 @@ app.get('/', async (req, res) => {
             temperature: weatherResponse.data.current.temp_f, 
             feels_like: weatherResponse.data.current.feelslike_f, 
             humidity: weatherResponse.data.current.humidity,
-            uvi: weatherResponse.data.current.uvi,
-            visibility: weatherResponse.data.current.vis_km,
+            uv: weatherResponse.data.current.uv,
+            visibility: weatherResponse.data.current.vis_mi,
             condition: weatherResponse.data.current.condition.text,
             icon: weatherResponse.data.current.condition.icon,
           },
           daily_weather: weatherResponse.data.forecast.forecastday
-            .filter((item, index) => index < 5)
-            .map((item) => ({
+          .filter((item, index) => index < 5)
+          .map((item) => {
+            // console.log('Daily Weather Condition:', item.day.condition);
+            return {
               date: item.date,
               sunrise: item.astro.sunrise,
               sunset: item.astro.sunset,
@@ -68,7 +68,8 @@ app.get('/', async (req, res) => {
               min_temp: item.day.mintemp_f, 
               condition: item.day.condition.text,
               icon: item.day.condition.icon,
-            })),
+            };
+          }),
           hourly_weather: weatherResponse.data.forecast.forecastday[0].hour.map((item) => ({
             time: item.time,
             temperature: item.temp_f, 
@@ -78,8 +79,10 @@ app.get('/', async (req, res) => {
         },
       },
     };
-
-    // res.json(formattedResponse);
+    
+    // console.log('Hourly Data:', weatherResponse.data.forecast.forecastday[0].hour);
+    // console.log('forecastday:', weatherResponse.data.forecast.forecastday);
+    
     console.log(formattedResponse)
     res.render('weather', { jsonData: formattedResponse, location });
 
