@@ -13,8 +13,10 @@ app.use(express.json()); // middleware = parse JSON req
 app.get('/', async (req, res) => {
   console.log('Request received');
 
-  const location = 'Denver, CO';
+  // const location = 'Denver, CO';
   // const location = 'Austin, TX';
+  // const location = 'New York, NY';
+  const location = "Seattle, WA"
 
   try {
     const mapquestApiKey = process.env.MAPQUEST_API_KEY;
@@ -84,15 +86,20 @@ app.get('/', async (req, res) => {
     // console.log('forecastday:', weatherResponse.data.forecast.forecastday);
     
     console.log(formattedResponse)
-    res.render('weather', { jsonData: formattedResponse, location });
+
+    if (req.query.json === 'true' || req.headers['accept'] === 'application/json') {
+      res.json(formattedResponse); 
+      // send JSON for api test
+    } else {
+      res.render('weather', { jsonData: formattedResponse, location });
+      // render view
+    }
 
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'An error occurred while fetching data' });
   }
 });
-
-
 
 
 
