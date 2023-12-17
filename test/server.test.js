@@ -1,6 +1,7 @@
 const chai = require('chai'); 
 const chaiHttp = require('chai-http'); // for API testing
 const app = require('../server.js'); 
+// const nock = require('nock');
 
 chai.use(chaiHttp);
 
@@ -16,4 +17,12 @@ describe('GET /', () => {
         done(); // for async operations
       });
   });
+
+  // it('should return the correct data'), (done) => {
+  //   chai.request(app)
+  //   .get('/')
+  //   .end((err, res) => {
+      
+  //   })
+  // }
 });
