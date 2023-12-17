@@ -14,7 +14,7 @@ app.use(express.json()); // middleware = parse JSON req
 app.get('/', async (req, res) => {
   console.log('Request received');
 
-  const locationQuery = req.query.location; //dynamic location
+  const locationQuery = req.query.location || "Denver, CO"; //dynamic location
   const location = locationQuery.toUpperCase();
   
   try {

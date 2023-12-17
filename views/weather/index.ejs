@@ -16,43 +16,51 @@
 
   <h2><%= location %></h2>
 
-  <h2>Current Weather</h2>
-  <ul>
-    <p>Last Updated: <%= jsonData.data.attributes.current_weather.last_updated %></p>
-    <p>Temperature: <%= jsonData.data.attributes.current_weather.temperature %>°F</p> 
-    <p>Feels Like: <%= jsonData.data.attributes.current_weather.feels_like %>°F</p>
-    <p>Humidity: <%= jsonData.data.attributes.current_weather.humidity %>%</p>
-    <p>UV Index: <%= jsonData.data.attributes.current_weather.uv %></p>
-    <p>Visibility: <%= jsonData.data.attributes.current_weather.visibility %> mi</p>
-    <p>Condition: <%= jsonData.data.attributes.current_weather.condition %></p>
-    <p><img src="<%= jsonData.data.attributes.current_weather.icon %>" alt="Current Weather Icon"></p>
-  </ul>
-  
-  <h2>Daily Weather</h2>
-  <ul>
-    <% jsonData.data.attributes.daily_weather.forEach(function(day) { %>
-      <p>
-        Date: <%= day.date %><br>
-        Sunrise: <%= day.sunrise %><br>
-        Sunset: <%= day.sunset %><br>
-        Max Temperature: <%= day.max_temp %>°F</p> 
-        Min Temperature: <%= day.min_temp %>°F</p> 
-        Condition: <%= day.condition %><br>
-        <img src="<%= day.icon %>" alt="Weather Icon">
-      </p>
-    <% }); %>
-  </ul>
-  
-  <h2>Hourly Weather</h2>
-  <ul>
-    <% jsonData.data.attributes.hourly_weather.forEach(function(hour) { %>
-      <p>
-        Time: <%= hour.time %><br>
-        Temperature: <%= hour.temperature %>°F</p> 
-        Conditions: <%= hour.conditions %><br>
-        <img src="<%= hour.icon %>" alt="Weather Icon">
-      </p>
-    <% }); %>
-  </ul>
+  <div class="weather-container">
+    <div class="weather">
+      <h2>Current Weather</h2>
+      <ul>
+        <p>Last Updated: <%= jsonData.data.attributes.current_weather.last_updated %></p>
+        <p>Temperature: <%= jsonData.data.attributes.current_weather.temperature %>°F</p> 
+        <p>Feels Like: <%= jsonData.data.attributes.current_weather.feels_like %>°F</p>
+        <p>Humidity: <%= jsonData.data.attributes.current_weather.humidity %>%</p>
+        <p>UV Index: <%= jsonData.data.attributes.current_weather.uv %></p>
+        <p>Visibility: <%= jsonData.data.attributes.current_weather.visibility %> mi</p>
+        <p>Condition: <%= jsonData.data.attributes.current_weather.condition %></p>
+        <p><img src="<%= jsonData.data.attributes.current_weather.icon %>" alt="Current Weather Icon"></p>
+      </ul>
+    </div>
+    
+    <div class="weather">
+      <h2>Daily Weather</h2>
+      <ul>
+        <% jsonData.data.attributes.daily_weather.forEach(function(day) { %>
+          <p>
+            Date: <%= day.date %><br>
+            Sunrise: <%= day.sunrise %><br>
+            Sunset: <%= day.sunset %><br>
+            Max Temperature: <%= day.max_temp %>°F</p> 
+            Min Temperature: <%= day.min_temp %>°F</p> 
+            Condition: <%= day.condition %><br>
+            <img src="<%= day.icon %>" alt="Weather Icon">
+          </p>
+        <% }); %>
+      </ul>
+    </div>
+    
+    <div class="weather">
+      <h2>Hourly Weather</h2>
+      <ul>
+        <% jsonData.data.attributes.hourly_weather.forEach(function(hour) { %>
+          <p>
+            Time: <%= hour.time %><br>
+            Temperature: <%= hour.temperature %>°F<br>
+            Conditions: <%= hour.conditions %><br>
+            <img src="<%= hour.icon %>" alt="Weather Icon">
+          </p>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
 </body>
 </html>
