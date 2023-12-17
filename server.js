@@ -13,10 +13,10 @@ app.use(express.json()); // middleware = parse JSON req
 app.get('/', async (req, res) => {
   console.log('Request received');
 
-  // const location = 'Denver, CO';
+  const location = 'Denver, CO';
   // const location = 'Austin, TX';
   // const location = 'New York, NY';
-  const location = "Seattle, WA"
+  // const location = "Seattle, WA"
 
   try {
     const mapquestApiKey = process.env.MAPQUEST_API_KEY;
