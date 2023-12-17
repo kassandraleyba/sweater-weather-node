@@ -1,0 +1,25 @@
+body {
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+.weather-button {
+  background-color: rgb(52, 130, 232);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.location-input {
+  padding: 8px 10px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+form, h1 {
+  display: flex;
+  justify-content: center;
+}

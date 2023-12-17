@@ -1,23 +1,22 @@
 const express = require('express');
 const axios = require('axios');
+const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
-module.exports = app;
-
 require('dotenv').config();
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
+
 app.use(express.json()); // middleware = parse JSON req
 
 app.get('/', async (req, res) => {
   console.log('Request received');
 
-  const location = 'Denver, CO';
-  // const location = 'Austin, TX';
-  // const location = 'New York, NY';
-  // const location = "Seattle, WA"
-
+  const locationQuery = req.query.location; //dynamic location
+  const location = locationQuery.toUpperCase();
+  
   try {
     const mapquestApiKey = process.env.MAPQUEST_API_KEY;
     const weatherApiKey = process.env.WEATHER_API_KEY;
@@ -28,12 +27,6 @@ app.get('/', async (req, res) => {
     // lat + long from api
     const lat = mapquestResponse.data.results[0].locations[0].latLng.lat;
     const lng = mapquestResponse.data.results[0].locations[0].latLng.lng;
-
-    // console.log('Latitude:', lat);
-    // console.log('Longitude:', lng);
-
-    // const jsonData = { latitude: lat, longitude: lng };
-    // res.render('index', { jsonData });
 
     // console.log('weather API Key:', weatherApiKey);
 
@@ -85,7 +78,7 @@ app.get('/', async (req, res) => {
     // console.log('Hourly Data:', weatherResponse.data.forecast.forecastday[0].hour);
     // console.log('forecastday:', weatherResponse.data.forecast.forecastday);
     
-    console.log(formattedResponse)
+    // console.log(formattedResponse)
 
     if (req.query.json === 'true' || req.headers['accept'] === 'application/json') {
       res.json(formattedResponse); 
@@ -110,3 +103,5 @@ app.get('/', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+module.exports = app;
