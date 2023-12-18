@@ -12,8 +12,6 @@ app.set('view engine', 'ejs');
 app.use(express.json()); // middleware = parse JSON req
 
 app.get('/', async (req, res) => {
-  console.log('Request received');
-
   const locationQuery = req.query.location || "Denver, CO"; 
   const location = locationQuery.toUpperCase();
   
