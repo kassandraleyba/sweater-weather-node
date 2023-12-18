@@ -14,7 +14,7 @@ app.use(express.json()); // middleware = parse JSON req
 app.get('/', async (req, res) => {
   console.log('Request received');
 
-  const locationQuery = req.query.location || "Denver, CO"; //dynamic location
+  const locationQuery = req.query.location || "Denver, CO"; 
   const location = locationQuery.toUpperCase();
   
   try {
@@ -24,16 +24,11 @@ app.get('/', async (req, res) => {
     const mapquestApiUrl = `https://www.mapquestapi.com/geocoding/v1/address?key=${mapquestApiKey}&location=${location}`;
     const mapquestResponse = await axios.get(mapquestApiUrl);
 
-    // lat + long from api
     const lat = mapquestResponse.data.results[0].locations[0].latLng.lat;
     const lng = mapquestResponse.data.results[0].locations[0].latLng.lng;
 
-    // console.log('weather API Key:', weatherApiKey);
-
-    const weatherApiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${weatherApiKey}&q=${lat},${lng}`;
+    const weatherApiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${weatherApiKey}&q=${lat},${lng}&days=5`;
     const weatherResponse = await axios.get(weatherApiUrl);
-
-    console.log('weather API Response:', weatherResponse.data);
     
     const lastUpdated = new Date(weatherResponse.data.current.last_updated);
     const formattedLastUpdated = lastUpdated.toLocaleString('en-US', {
@@ -45,7 +40,6 @@ app.get('/', async (req, res) => {
       hour12: true
     });
 
-    // data set
     const formattedResponse = {
       data: {
         id: null,
@@ -62,9 +56,9 @@ app.get('/', async (req, res) => {
             icon: weatherResponse.data.current.condition.icon,
           },
           daily_weather: weatherResponse.data.forecast.forecastday
+          
           .filter((item, index) => index < 5)
           .map((item) => {
-            // console.log('Daily Weather Condition:', item.day.condition);
             return {
               date: item.date,
               sunrise: item.astro.sunrise,
@@ -84,18 +78,11 @@ app.get('/', async (req, res) => {
         },
       },
     };
-    
-    // console.log('Hourly Data:', weatherResponse.data.forecast.forecastday[0].hour);
-    // console.log('forecastday:', weatherResponse.data.forecast.forecastday);
-    
-    // console.log(formattedResponse)
 
     if (req.query.json === 'true' || req.headers['accept'] === 'application/json') {
       res.json(formattedResponse); 
-      // send JSON for api test
     } else {
       res.render('weather', { jsonData: formattedResponse, location });
-      // render view
     }
 
   } catch (error) {
@@ -109,9 +96,10 @@ app.get('/', async (req, res) => {
 
 
 
-
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+
 
 module.exports = app;

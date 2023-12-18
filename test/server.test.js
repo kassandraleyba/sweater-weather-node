@@ -1,7 +1,6 @@
 const chai = require('chai'); 
 const chaiHttp = require('chai-http'); // for API testing
 const app = require('../server.js'); 
-// const nock = require('nock'); //mock testing
 
 chai.use(chaiHttp);
 
@@ -21,8 +20,6 @@ describe('GET /', () => {
   it('should return forecast object with specific keys', (done) => {
     chai.request(app)
     .get('/?json=true')
-      // sends a GET request with a query parameter to indicate that the 
-      // server should return JSON data for testing purposes
 
       .end((err, res) => {
         expect(res).to.have.status(200);
