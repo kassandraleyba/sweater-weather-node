@@ -34,6 +34,19 @@ app.get('/', async (req, res) => {
     const weatherResponse = await axios.get(weatherApiUrl);
 
     console.log('weather API Response:', weatherResponse.data);
+    
+    let formattedLastUpdated = '';
+    if (weatherResponse.data.current && weatherResponse.data.current.last_updated) {
+      const lastUpdated = new Date(weatherResponse.data.current.last_updated);
+      formattedLastUpdated = lastUpdated.toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true
+      });
+    }
 
     // data set
     const formattedResponse = {
@@ -42,7 +55,7 @@ app.get('/', async (req, res) => {
         type: 'forecast',
         attributes: {
           current_weather: {
-            last_updated: new Date().toLocaleString(),
+            last_updated: formattedLastUpdated,
             temperature: weatherResponse.data.current.temp_f, 
             feels_like: weatherResponse.data.current.feelslike_f, 
             humidity: weatherResponse.data.current.humidity,
