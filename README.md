@@ -7,7 +7,7 @@
 
 Sweater Weather in Node.js is a weather API application following requirements [here](https://backend.turing.edu/module3/projects/sweater_weather/requirements).
 
-A user is able to search for a city in the search bar. Once the request is sent, the user will see a response for the current weather, daily forecast for the week, and an hourly forecast.
+A user is able to input a city in the search bar to retrieve the current weather for that city, daily forecast for the week, and an hourly forecast.
 
 The learning goals for this project are:
 
