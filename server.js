@@ -35,18 +35,15 @@ app.get('/', async (req, res) => {
 
     console.log('weather API Response:', weatherResponse.data);
     
-    let formattedLastUpdated = '';
-    if (weatherResponse.data.current && weatherResponse.data.current.last_updated) {
-      const lastUpdated = new Date(weatherResponse.data.current.last_updated);
-      formattedLastUpdated = lastUpdated.toLocaleString('en-US', {
-        year: 'numeric',
-        month: 'numeric',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        hour12: true
-      });
-    }
+    const lastUpdated = new Date(weatherResponse.data.current.last_updated);
+    const formattedLastUpdated = lastUpdated.toLocaleString('en-US', {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true
+    });
 
     // data set
     const formattedResponse = {
